@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="Comment">
+	<insert id="save" parameterType="comment">
+		insert into comment_table_sej (b_number,m_id,c_contents,c_date)
+			values(#{b_number},#{m_id},#{c_contents},now())
+	</insert>
+	
+	<select id="findAll" parameterType="long" resultType="comment">
+		select * from comment_table_sej where b_number=#{b_number} order by c_number desc
+	</select>
+</mapper>

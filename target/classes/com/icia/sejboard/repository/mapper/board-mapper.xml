@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Board">
+ 	<!-- 글쓰기 저장 -->
+ 	<insert id="saveFile" parameterType="board">
+ 		insert into board_table_sej(m_id,b_title,b_contents,b_filename,b_date)
+			values(#{m_id},#{b_title},#{b_contents},#{b_filename},now())
+ 	</insert>
+ 	
+ 	<!-- 상세 조회 -->
+ 	<select id="findById" parameterType="Long" resultType="board">
+ 		select * from board_table_sej where b_number=#{b_number}
+ 	</select>
+ 	
+ 	<!-- 조회수 -->
+ 	<update id="hits" parameterType="Long">
+ 		update board_table_sej set b_hits=b_hits+1 where b_number=#{b_number}
+ 	</update>
+ 	
+ 	<!-- 페이징(전체 조회) -->
+ 	<select id="pagingList" parameterType="int" resultType="board">
+		select * from board_table_sej order by b_number desc limit #{pagingStart}, 3
+	</select>
+	
+	<select id="pagingList1" parameterType="java.util.HashMap" resultType="board">
+		select * from board_table_sej order by b_number desc limit #{start}, #{limit}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(b_number) from board_table_sej
+	</select>
+ 	
+ 	<!-- 검색 -->
+ 	<select id="search" parameterType="java.util.HashMap" resultType="board">
+		select * from board_table_sej 			
+		<include refid="sear"></include>
+	</select>
+	
+	<sql id="sear">
+		<choose>
+			<when test="type=='b_title'">
+				where b_title like concat('%', #{word}, '%') 
+			</when>
+			<when test="type=='m_id'">
+				where m_id like concat('%', #{word}, '%') 
+			</when>
+		</choose>
+	</sql>
+	
+	<!-- 삭제 -->
+	<select id="delete" parameterType="Long">
+ 		delete from board_table_sej where b_number=#{b_number}
+ 	</select>
+ 	
+ 	<!-- 수정 처리 -->
+ 	<select id="update" parameterType="board">
+ 		update board_table_sej set b_title=#{b_title},b_contents=#{b_contents},b_filename=#{b_filename} where b_number=#{b_number}
+ 	</select>
+ </mapper>

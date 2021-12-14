@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+.box {
+	text-align: center;
+}
+/* login(index) */
+.login_box {
+	width: 300px;
+	margin:0 auto;
+}
+.login_input, .login_btn, .login_signup_btn {
+	width: 100%;
+	height: 30px;
+	display: block;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+}
+.login_btn {
+	margin: 20px 0px;
+}
+
+/* cursor-pointer */
+.cus_p {
+	cursor: pointer;
+}
+
+/* table */
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+th {
+	border-top: 2px solid #333;
+	border-bottom: 2px solid #333;
+	padding: 10px;
+}
+td {
+	border-bottom: 1px solid #ccc;
+	padding: 8px;
+}
+.table_box {
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+.table_findAll {
+
+}
+.tta {
+	resize: none;
+}
+
+
+/* board save */
+.save_box {
+	width: 500px;
+	height: 30px;
+	margin: 0 auto;
+	display: flex;
+}
+.save_box_2 {
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+}
+.save_input_txt {
+	width: 100px;
+	height: 30px;
+	margin: 0;
+	padding-top: 2px;
+		
+}
+.save_input {
+	vertical-align: middle;
+	flex-grow: 1;
+}
+.save_btn_box {
+	width: 500px;
+	height: 30px;
+	margin: 0 auto;
+	
+}
+.save_btn {
+	width: 80px;
+	height: 100%;
+	margin: 0px 5px;
+}
+.empty_10 {
+	height: 10px;
+}
+
+/* board findAll */
+.b_findAll_btn_box {
+	display: flex;
+	justify-content: space-between;
+}
+.b_findAll_user_text {
+	display: inline-block;
+	justify-content: space-between;
+}
+.board_search_box, .board_save_btn_box {
+	display: table;
+}
+.board_search, .vertical_m {
+	display: table-cell;
+	vertical-align: middle;
+}
+.board_search_select {
+	height: 30px;
+	padding: 5px;
+}
+.board_search_input {
+	padding: 5px 5px 6px 5px;
+}
+.board_btn {
+	padding: 4px 8px;
+}
+
+
+.comment_user {
+	border: none;
+	text-align: right;
+	padding-right: 20px;
+}
